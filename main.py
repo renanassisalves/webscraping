@@ -28,10 +28,10 @@ def scrapTeams(data):
         winPercentage = team.findNext("td", attrs={"class": "pct"}).text.replace("\n", "").strip()
         goalsFor = team.findNext("td", attrs={"class": "gf"}).text.replace("\n", "").strip()
         goalsAgainst = team.findNext("td", attrs={"class": "ga"}).text.replace("\n", "").strip()
-        plusMinus = team.findNext("td", attrs={"class": "diff"}).text.replace("\n", "").strip()
+        goalsDifference = team.findNext("td", attrs={"class": "diff"}).text.replace("\n", "").strip()
 
         team = Team(name, year, wins, losses, otLosses,
-                    winPercentage, goalsFor, goalsAgainst, plusMinus)
+                    winPercentage, goalsFor, goalsAgainst, goalsDifference)
         __teams.append(team)
 
     return __teams
